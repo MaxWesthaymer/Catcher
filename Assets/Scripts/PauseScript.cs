@@ -110,7 +110,7 @@ public class PauseScript : MonoBehaviour  {
 				} 
 				int _updateScore = PlayerPrefs.GetInt ("higscore");
 				_bestScore.text = _updateScore.ToString ("00");
-				googleServ.PostToLeaderboard (_updateScore);
+				//googleServ.PostToLeaderboard (_updateScore);
 		}
 		public void Clear()
 		{
