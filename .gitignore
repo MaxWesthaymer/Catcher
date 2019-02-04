@@ -36,9 +36,6 @@ ehthumbs.db
 Thumbs.db
 
 #-------
-Reference/
-WhoSTail*.zip
-WhoSTail*.rar
 /ios*
 /Assets/Resources/UserConfig.asset
 /Assets/Resources/UserConfig.asset.meta
