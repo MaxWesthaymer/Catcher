@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour {
 		public float _moveSpeed;
 
 		int score = 1;
-		private GameController GC;
-		GameObject gameControllerObject;
 		public GameObject sound;
 		public UnityEvent _onTriggerEnter = new UnityEvent();
 		public Color _playerColor;
@@ -24,17 +22,6 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 				_startPosition = new Vector3 (0, -0.21f, -1.02f);
-				//transform.DOPunchPosition(new Vector3( 0,0.2f,0),1,2,1,false).SetLoops(-1,LoopType.Yoyo);
-				gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-
-				if (gameControllerObject != null)
-				{
-						GC = gameControllerObject.GetComponent <GameController >();
-				}
-				if (GC == null)
-				{
-						Debug.Log ("Cannot find 'GameController' script");
-				}
 				_playerColor = gameObject.GetComponent<SpriteRenderer> ().color;
 				Sequence _player = DOTween.Sequence ();
 				_player.Append(transform.DOLocalMoveY (-0.21f, 0.5f, false).SetEase (Ease.InOutSine));
@@ -45,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 		void OnTriggerEnter2D(Collider2D other)
 		{
 				other.gameObject.SetActive (false);
-				GC.AddScore (score);
+				GameController.instance.AddScore (score);
 				//sound.GetComponent<AudioSource>().Play ();
 				_onTriggerEnter.Invoke ();
 				DoScale (other);

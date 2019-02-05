@@ -6,24 +6,23 @@ using UnityEngine.Events;
 
 public class PauseScript : MonoBehaviour  {
 	bool isPause = true;
-		public UnityEvent _gameOver = new UnityEvent();
+	public UnityEvent _gameOver = new UnityEvent();
 	public GameObject _pauseMenu;
 	public GameObject _playMenu;
 	private GameController GC;
 	public HugeDOTween _hudeDoTween;
 	public GameObject _stolb;
-		public Button[] _buttons; 
-		private float[] _buttonsOnStart;
-		private float _stolbOnStart;
-		public Text _finalScore;
-		public Text _bestScore;
-		public UnityEvent _exit = new UnityEvent();
-		public Text _scoreMAIN;
+	public Button[] _buttons; 
+	private float[] _buttonsOnStart;
+	private float _stolbOnStart;
+	public Text _finalScore;
+	public Text _bestScore;
+	public UnityEvent _exit = new UnityEvent();
+	public Text _scoreMAIN;
 
-	// Use this for initialization
 	void Start () {
 				_stolbOnStart = _stolb.transform.position.y;
-		Time.timeScale = 0;
+		Time.timeScale = 0;  //todo убрать
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
@@ -36,7 +35,6 @@ public class PauseScript : MonoBehaviour  {
 				_scoreMAIN.text = PlayerPrefs.GetInt ("higscore").ToString ("00");
 	}
 	
-	// Update is called once per frame
 	void Update () {
 				if (Input.GetKeyDown(KeyCode.Escape))
 				{
@@ -108,7 +106,6 @@ public class PauseScript : MonoBehaviour  {
 				} 
 				int _updateScore = PlayerPrefs.GetInt ("higscore");
 				_bestScore.text = _updateScore.ToString ("00");
-				//googleServ.PostToLeaderboard (_updateScore);
 		}
 		public void Clear()
 		{
@@ -122,7 +119,6 @@ public class PauseScript : MonoBehaviour  {
 				PlayerPrefs.SetInt ("session", _session);
 				if (_session > 1) {
 						PlayerPrefs.SetInt ("session", 0);
-						//_appodeal.ShowBanner ();
 				}
 		}
 		public void Help ()

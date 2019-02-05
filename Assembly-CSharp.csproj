@@ -55,11 +55,11 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\Scripts\AddForce.cs" />
+    <Compile Include="Assets\Scripts\AdditionalClasses.cs" />
     <Compile Include="Assets\Scripts\AudioScript.cs" />
-    <Compile Include="Assets\Scripts\BoundDestroy2d.cs" />
+    <Compile Include="Assets\Scripts\BallController.cs" />
+    <Compile Include="Assets\Scripts\BoundDestroy.cs" />
     <Compile Include="Assets\Scripts\CallEvent.cs" />
-    <Compile Include="Assets\Scripts\DectroyByContact2D.cs" />
     <Compile Include="Assets\Scripts\DemoWaterSplash.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\DoRotate.cs" />

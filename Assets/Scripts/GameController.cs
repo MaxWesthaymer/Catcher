@@ -3,84 +3,110 @@ using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
 
-
-public class GameController : MonoBehaviour {
-	public Text ScoreText;
-	public int Score=0;
-
-		public float _temprTime;
-		public float _changeSpeedTime;
-		public float _waitOffset;
-		public HugeDOTween _hugeDoTween;
-		public SpawnController _spawn;
-		public SpriteRenderer _background;
-		public SpriteRenderer[] _bokovuha;
-		public Color[] _color1;
-		public Color[] _color2;
-		public Color[] _color3;
-		public Color[] _color4;
-		public Material _water;
-
-	//public Button bt;
-
-	// Use this for initialization
-	void Start () {
+public class GameController : MonoBehaviour 
+{
+	#region InspectorFields
+	[SerializeField] private Text _scoreText;
+	[SerializeField] private float _temprTime;
+	[SerializeField] private float _waitOffset;
+	[SerializeField] private SpawnController _spawn;
+	[SerializeField] private SpriteRenderer _background;
+	[SerializeField] private SpriteRenderer[] _bokovuha;
+	[SerializeField] private Color[] _color1;
+	[SerializeField] private Color[] _color2;
+	[SerializeField] private Color[] _color3;
+	[SerializeField] private Color[] _color4;
+	[SerializeField] private Material _water;
+	#endregion
 	
-				ScoreText.text = Score.ToString("00");
-				StartCoroutine (Temper ());
+	#region PrivateFields
 
-	}
+	private int _colorChangeCounter;
+	#endregion
 	
+	#region Public Fields
+	public static GameController instance;
+	#endregion
 
-	public void AddScore(int NewScore)
+	#region Properties	
+	public int Score { set; get;}
+    #endregion
+	
+	#region UnityMethods
+
+	private void Awake()
 	{
-		Score += NewScore;
-		
-				ScoreText.text = Score.ToString("00");
-				if (Score == 20) {
-						DoColor (_background, _color1 [0]);
-						foreach (var _bok in _bokovuha) 
-						{
-								DoColor (_bok, _color1 [1]);	
-						}
-						_water.DOColor (_color1 [2], 1);
-				}
-				if (Score == 40) {
-						DoColor (_background, _color2 [0]);
-						foreach (var _bok in _bokovuha) 
-						{
-								DoColor (_bok, _color2 [1]);	
-						}
-						_water.DOColor (_color2 [2], 1);
-				}
-				if (Score == 60) {
-						DoColor (_background, _color3 [0]);
-						foreach (var _bok in _bokovuha) 
-						{
-								DoColor (_bok, _color3 [1]);	
-						}
-						_water.DOColor (_color3 [2], 1);
-				}
-				if (Score == 80) {
-						DoColor (_background, _color4 [0]);
-						foreach (var _bok in _bokovuha) 
-						{
-								DoColor (_bok, _color4 [1]);	
-						}
-						_water.DOColor (_color4 [2], 1);
-				}
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	private void Start ()
+	{
+		SetRandomColor();
+		_scoreText.text = Score.ToString("00");
+		_colorChangeCounter = 0;
+		StartCoroutine(Temper());
+	}
+	#endregion
+
+	public void AddScore(int newScore)
+	{
+		Score += newScore;
+		_colorChangeCounter++;
+		_scoreText.text = Score.ToString("00");
+		if (_colorChangeCounter >= 10)
+			{
+				SetRandomColor();
+				_colorChangeCounter = 0;
+			}	
 		}
 				
-		IEnumerator Temper()
+	private  IEnumerator Temper() //изменение сложности игры
+	{
+			while (_spawn.spawnWait > 0.5) {
+					yield return new WaitForSeconds(_temprTime);
+					_spawn.spawnWait -= _waitOffset;
+			}
+	}		
+
+	private void SetRandomColor()
+	{
+		var num = Random.Range(0, 4);
+		switch (num)
 		{
-				while (_spawn.spawnWait > 0.5) {
-						yield return new WaitForSeconds(_temprTime);
-						_spawn.spawnWait -= _waitOffset;
-				}
+			case 0:
+				SetColor(_color1);
+				break;
+			case 1:
+				SetColor(_color2);
+				break;
+			case 2:
+				SetColor(_color3);
+				break;
+			case 3:
+				SetColor(_color4);
+				break;
 		}
-		public void DoColor (SpriteRenderer obj, Color _color)
+	}
+
+	private void SetColor(Color[] palette)
+	{
+		DoColor (_background, palette [0]);
+		foreach (var it in _bokovuha) 
 		{
-				obj.DOColor (_color, 1);
+			DoColor (it, palette [1]);	
 		}
+		_water.DOColor (palette [2], 1);
+	}
 	
+	private void DoColor (SpriteRenderer obj, Color color)
+	{
+		obj.DOColor (color, 1);
+	}
 }

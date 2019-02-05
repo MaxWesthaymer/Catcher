@@ -5,14 +5,11 @@ using System.Collections.Generic;
 public class SpawnController : MonoBehaviour
 {
 	public GameObject rub;
-	//public Vector2 spawnValues;
 	public int rubCount;
-		public Transform[]  _spawnPositions;
+	public Transform[]  _spawnPositions;
 	public float spawnWait;
 	public float startWait;
 	private GameController GC;
-	//public float waveWait;
-	float x,y,z;
 	int sp;
 	public int poolingAmount = 6;
 		List<GameObject> monets;
@@ -32,7 +29,7 @@ public class SpawnController : MonoBehaviour
 				monets = new List<GameObject> ();
 				for (int i = 0; i < poolingAmount; i++) 
 				{
-						GameObject obj = (GameObject)Instantiate (rub);
+						GameObject obj = Instantiate (rub);
 						obj.SetActive (false);
 						monets.Add (obj);
 				}
@@ -49,23 +46,20 @@ public class SpawnController : MonoBehaviour
 				sp = Random.Range(0,_spawnPositions.Length);
 
 				Vector3 spawnPosition = _spawnPositions[sp].position;
-				//Quaternion spawnRotation = Quaternion.identity;
-								Quaternion spawnRotation = _spawnPositions[sp].rotation;
-			//	Instantiate (rub, spawnPosition, spawnRotation);
-								for (int j = 0; j < monets.Count; j++) 
-								{
-										if (!monets [i].activeInHierarchy) 
-										{
-												monets [i].transform.position = spawnPosition;
-												monets [i].transform.rotation = spawnRotation;
-												monets [i].SetActive (true);
-												break;
-										}
-
-								}
+				Quaternion spawnRotation = _spawnPositions[sp].rotation;
+			
+				for (int j = 0; j < monets.Count; j++) 
+				{
+					if (!monets [i].activeInHierarchy) 
+					{
+							monets [i].transform.position = spawnPosition;
+							monets [i].transform.rotation = spawnRotation;
+							monets [i].SetActive (true);
+							break;
+					}
+				}
 			yield return new WaitForSeconds(spawnWait);
 			}
-			//yield return new WaitForSeconds(waveWait);
 		}
 	}
 }
