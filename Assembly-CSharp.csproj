@@ -53,33 +53,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AddForce.cs" />
-    <Compile Include="Assets\AudioScript.cs" />
-    <Compile Include="Assets\BoundDestroy2d.cs" />
-    <Compile Include="Assets\CallEvent.cs" />
-    <Compile Include="Assets\DectroyByContact2D.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
-    <Compile Include="Assets\DemoWaterSplash.cs" />
-    <Compile Include="Assets\DoRotate.cs" />
-    <Compile Include="Assets\HugeDOTween.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Asteromove.cs" />
-    <Compile Include="Assets\Scripts\buttonControll.cs" />
-    <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
-    <Compile Include="Assets\Scripts\DestroyByContact.cs" />
-    <Compile Include="Assets\Scripts\DestroyByTime.cs" />
+    <Compile Include="Assets\Scripts\AddForce.cs" />
+    <Compile Include="Assets\Scripts\AudioScript.cs" />
+    <Compile Include="Assets\Scripts\BoundDestroy2d.cs" />
+    <Compile Include="Assets\Scripts\CallEvent.cs" />
+    <Compile Include="Assets\Scripts\DectroyByContact2D.cs" />
+    <Compile Include="Assets\Scripts\DemoWaterSplash.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
+    <Compile Include="Assets\Scripts\DoRotate.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\GooglePlay.cs" />
-    <Compile Include="Assets\Scripts\Mover.cs" />
+    <Compile Include="Assets\Scripts\HugeDOTween.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerPrefsX.cs" />
-    <Compile Include="Assets\Scripts\RandomRotator.cs" />
-    <Compile Include="Assets\Scripts\spawn.cs" />
+    <Compile Include="Assets\Scripts\SideBlockMovier.cs" />
     <Compile Include="Assets\Scripts\SpawnController.cs" />
     <Compile Include="Assets\Scripts\WaterLine.cs" />
-    <Compile Include="Assets\SideBlockMovier.cs" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
@@ -651,12 +642,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{28F77B74-9D5D-A1F4-61B6-F3CA8B48D40B}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

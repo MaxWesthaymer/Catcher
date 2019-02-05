@@ -18,8 +18,6 @@ public class PauseScript : MonoBehaviour  {
 		public Text _finalScore;
 		public Text _bestScore;
 		public UnityEvent _exit = new UnityEvent();
-		//public AppoStart _appodeal;
-		public GooglePlay googleServ;
 		public Text _scoreMAIN;
 
 	// Use this for initialization
