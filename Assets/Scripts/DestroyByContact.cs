@@ -3,10 +3,8 @@ using System.Collections;
 
 public class DestroyByContact : MonoBehaviour
 {
-	//public GameObject explosion;
-	//public GameObject playerExplosion;
 	 int score = -1;
-	private PlayerControll GC;
+	private GameController GC;
 	GameObject gameControllerObject;
 	public GameObject sound;
 	void Start()
@@ -15,7 +13,7 @@ public class DestroyByContact : MonoBehaviour
 
 		if (gameControllerObject != null)
 		{
-			GC = gameControllerObject.GetComponent <PlayerControll>();
+			GC = gameControllerObject.GetComponent <GameController>();
 		}
 		if (GC == null)
 		{
@@ -24,21 +22,8 @@ public class DestroyByContact : MonoBehaviour
 		}
 	void OnTriggerEnter(Collider other) 
 	{
-//		if (other.tag == "korzina")
-//		{
-//			return;
-//		}
-//		Instantiate(explosion, transform.position, transform.rotation);
-//		if (other.tag == "Player")
-//		{
-//			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-//		}
-		//Destroy(other.gameObject);
-				other.gameObject.SetActive(false);
-		//Destroy(gameObject);
+		other.gameObject.SetActive(false);
 		GC.AddScore(score);
-	//	if (sound. == true){
-		sound.GetComponent<AudioSource>().Play ();
-		//}
+		sound.GetComponent<AudioSource>().Play ();		
 	}
 }

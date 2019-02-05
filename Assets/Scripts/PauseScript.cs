@@ -9,7 +9,7 @@ public class PauseScript : MonoBehaviour  {
 		public UnityEvent _gameOver = new UnityEvent();
 	public GameObject _pauseMenu;
 	public GameObject _playMenu;
-	private PlayerControll GC;
+	private GameController GC;
 	public HugeDOTween _hudeDoTween;
 	public GameObject _stolb;
 		public Button[] _buttons; 
@@ -29,7 +29,7 @@ public class PauseScript : MonoBehaviour  {
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
-			GC = gameControllerObject.GetComponent <PlayerControll>();
+			GC = gameControllerObject.GetComponent <GameController>();
 		}
 		if (GC == null)
 		{

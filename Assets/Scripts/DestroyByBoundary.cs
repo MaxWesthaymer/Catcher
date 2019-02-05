@@ -3,13 +3,13 @@ using System.Collections;
 
 public class DestroyByBoundary : MonoBehaviour {
 	int scor = 1;
-	private PlayerControll GC;
+	private GameController GC;
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
-			GC = gameControllerObject.GetComponent <PlayerControll>();
+			GC = gameControllerObject.GetComponent <GameController>();
 		}
 		if (GC == null)
 		{
@@ -18,9 +18,9 @@ public class DestroyByBoundary : MonoBehaviour {
 	}
 
 
-	void OnTriggerExit(Collider other) {
-		//Destroy(other.gameObject);
-				other.gameObject.SetActive(false);
+	void OnTriggerExit(Collider other) 
+	{
+		other.gameObject.SetActive(false);
 		GC.AddScore(scor);
 	}
 }

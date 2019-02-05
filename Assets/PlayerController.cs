@@ -5,15 +5,14 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class PlayerMover : MonoBehaviour {
-		//public Transform _right;
-		//public Transform _left;
+public class PlayerController : MonoBehaviour {
+	
 		public Transform[] _playerPositions;
 		private Vector3 _startPosition;
 		public float _moveSpeed;
 
 		int score = 1;
-		private PlayerControll GC;
+		private GameController GC;
 		GameObject gameControllerObject;
 		public GameObject sound;
 		public UnityEvent _onTriggerEnter = new UnityEvent();
@@ -30,7 +29,7 @@ public class PlayerMover : MonoBehaviour {
 
 				if (gameControllerObject != null)
 				{
-						GC = gameControllerObject.GetComponent <PlayerControll>();
+						GC = gameControllerObject.GetComponent <GameController >();
 				}
 				if (GC == null)
 				{

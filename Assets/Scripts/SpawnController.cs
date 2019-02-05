@@ -10,7 +10,7 @@ public class SpawnController : MonoBehaviour
 		public Transform[]  _spawnPositions;
 	public float spawnWait;
 	public float startWait;
-	private PlayerControll GC;
+	private GameController GC;
 	//public float waveWait;
 	float x,y,z;
 	int sp;
@@ -22,7 +22,7 @@ public class SpawnController : MonoBehaviour
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null)
 		{
-			GC = gameControllerObject.GetComponent <PlayerControll>();
+			GC = gameControllerObject.GetComponent <GameController>();
 		}
 		if (GC == null)
 		{

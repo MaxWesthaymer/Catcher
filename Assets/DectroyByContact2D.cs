@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class DectroyByContact2D : MonoBehaviour {
 		int score = 1;
-		private PlayerControll GC;
+		private GameController GC;
 		GameObject gameControllerObject;
 		public GameObject sound;
 		public UnityEvent _onTriggerEnter = new UnityEvent();
@@ -14,7 +14,7 @@ public class DectroyByContact2D : MonoBehaviour {
 
 				if (gameControllerObject != null)
 				{
-						GC = gameControllerObject.GetComponent <PlayerControll>();
+						GC = gameControllerObject.GetComponent <GameController>();
 				}
 				if (GC == null)
 				{
