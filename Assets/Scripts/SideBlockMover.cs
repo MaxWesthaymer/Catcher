@@ -3,7 +3,7 @@ using System.Collections;
 using DG.Tweening;
 
 public class SideBlockMover : MonoBehaviour {
-	public float _xOffset;
+	[SerializeField]private float _xOffset;
 	private float _startPos;
 	
 	#region UnityMethods
@@ -12,11 +12,11 @@ public class SideBlockMover : MonoBehaviour {
 		_startPos = transform.position.x;
 	}	
 
-	private void OnCollisionEnter2D(Collision2D other) 
+	private void OnCollisionEnter2D() 
 	{
-		Sequence _smallmoveX = DOTween.Sequence ();
-		_smallmoveX.Append(transform.DOMoveX (_startPos + _xOffset, 0.1f, false));
-		_smallmoveX.Append(transform.DOMoveX (_startPos, 0.1f, false));
+		var smallmoveX = DOTween.Sequence ();
+		smallmoveX.Append(transform.DOMoveX (_startPos + _xOffset, 0.1f));
+		smallmoveX.Append(transform.DOMoveX (_startPos, 0.1f));
 		transform.GetComponent<AudioSource> ().Play ();
 	}
 

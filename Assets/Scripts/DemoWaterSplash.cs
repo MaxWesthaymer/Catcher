@@ -9,7 +9,7 @@ public class DemoWaterSplash : MonoBehaviour {
 	public GameObject _waterObj;
 	private float _yPos;
 	public float _offset;
-	public PauseScript _pauseScript;
+	public UIController _pauseScript;
 	private void Start()
 	{
 			_yPos = -2;
@@ -27,7 +27,7 @@ public class DemoWaterSplash : MonoBehaviour {
 	}
 	private void GameOver()
 	{
-		_pauseScript.GameOver ();
+		_pauseScript.GameOver();
 	}
 	private void Update()
 	{

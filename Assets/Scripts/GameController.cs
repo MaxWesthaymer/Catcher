@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
     #endregion
 	
 	#region UnityMethods
-
 	private void Awake()
 	{
 		if (instance == null)
@@ -55,23 +54,28 @@ public class GameController : MonoBehaviour
 	}
 	#endregion
 
-	public void AddScore(int newScore)
+	#region PublicMethods
+	public void AddScore()
 	{
+		var newScore = 1;
 		Score += newScore;
 		_colorChangeCounter++;
 		_scoreText.text = Score.ToString("00");
+		
 		if (_colorChangeCounter >= 10)
 			{
 				SetRandomColor();
 				_colorChangeCounter = 0;
 			}	
 		}
-				
+	#endregion
+		
+	#region PrivateMethods
 	private  IEnumerator Temper() //изменение сложности игры
 	{
-			while (_spawn.spawnWait > 0.5) {
+			while (_spawn.SpawnWait > 0.5) {
 					yield return new WaitForSeconds(_temprTime);
-					_spawn.spawnWait -= _waitOffset;
+					_spawn.SpawnWait -= _waitOffset;
 			}
 	}		
 
@@ -109,4 +113,5 @@ public class GameController : MonoBehaviour
 	{
 		obj.DOColor (color, 1);
 	}
+	#endregion
 }

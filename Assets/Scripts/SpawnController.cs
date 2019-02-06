@@ -4,64 +4,71 @@ using System.Collections.Generic;
 
 public class SpawnController : MonoBehaviour
 {
-	public GameObject rub;
-	public int rubCount;
-	public Transform[]  _spawnPositions;
-	public float spawnWait;
-	public float startWait;
-	private GameController GC;
-	int sp;
-	public int poolingAmount = 6;
-		List<GameObject> monets;
-	void Start ()
-	{
-		StartCoroutine (SpawnWaves ());
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		if (gameControllerObject != null)
-		{
-			GC = gameControllerObject.GetComponent <GameController>();
-		}
-		if (GC == null)
-		{
-			Debug.Log ("Cannot find 'GameController' script");
-		}
+	#region InspectorFields
+	[SerializeField] private  GameObject _ballPrefab;
+	[SerializeField] private  Transform[]  _spawnPositions;
+	#endregion
+	
+	#region PrivateFields
+	private static float _startWait = 4f;	
+	private static int _poolingAmount = 10;
+	private static int _ballsCount = 10;
+	private	List<GameObject> _balls;
+	#endregion
+	
+	#region Properties	
+	public float SpawnWait { set; get; }
+	#endregion
+	
+	#region UnityMethods
 
-				monets = new List<GameObject> ();
-				for (int i = 0; i < poolingAmount; i++) 
-				{
-						GameObject obj = Instantiate (rub);
-						obj.SetActive (false);
-						monets.Add (obj);
-				}
+	private void Awake()
+	{
+		SpawnWait = 2.0f;
+	}
+
+	private void Start ()
+	{
+		StartCoroutine(SpawnWaves());
+		_balls = new List<GameObject> ();
+			for (int i = 0; i < _poolingAmount; i++) 
+			{
+					GameObject obj = Instantiate (_ballPrefab);
+					obj.SetActive (false);
+				_balls.Add (obj);
+			}
 	}
 	
-	IEnumerator SpawnWaves ()
+	#endregion
+	
+	#region UnityMethods
+	private IEnumerator SpawnWaves ()
 	{   
-
-		yield return new WaitForSeconds (startWait);
+		yield return new WaitForSeconds (_startWait);
 		while(true)
 		{
-			for (int i = 0;i < rubCount;i++) {
+			for (int i = 0;i < _ballsCount;i++) {
 
-				sp = Random.Range(0,_spawnPositions.Length);
+				var positionIndex = Random.Range(0,_spawnPositions.Length);
 
-				Vector3 spawnPosition = _spawnPositions[sp].position;
-				Quaternion spawnRotation = _spawnPositions[sp].rotation;
+				Vector3 spawnPosition = _spawnPositions[positionIndex].position;
+				Quaternion spawnRotation = _spawnPositions[positionIndex].rotation;
 			
-				for (int j = 0; j < monets.Count; j++) 
+				for (int j = 0; j < _balls.Count; j++) 
 				{
-					if (!monets [i].activeInHierarchy) 
+					if (!_balls[i].activeInHierarchy) 
 					{
-							monets [i].transform.position = spawnPosition;
-							monets [i].transform.rotation = spawnRotation;
-							monets [i].SetActive (true);
+						_balls[i].transform.position = spawnPosition;
+						_balls[i].transform.rotation = spawnRotation;
+						_balls[i].SetActive (true);
 							break;
 					}
 				}
-			yield return new WaitForSeconds(spawnWait);
+			yield return new WaitForSeconds(SpawnWait);
 			}
 		}
 	}
+	#endregion
 }
 
 
