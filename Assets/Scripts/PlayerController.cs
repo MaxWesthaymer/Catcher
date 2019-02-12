@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	public void playerGameOver()
 	{
-			transform.DOLocalMoveY (-10f, 10);
+		_explosion.GetComponent<ParticleSystem>().Stop();
+		transform.DOLocalMoveY (-10f, 10);
 	}				
 }

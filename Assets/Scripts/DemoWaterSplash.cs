@@ -17,7 +17,11 @@ public class DemoWaterSplash : MonoBehaviour {
 			StartCoroutine (Wawes ());
 	}
 	private void OnTriggerEnter2D(Collider2D coll)
-	{	
+	{
+		if (GameController.instance.isGameOver)
+		{
+			return;
+		}
 		_yPos = _yPos + _offset;
 		transform.GetComponent<AudioSource>().Play ();
 		_en = true;
@@ -27,7 +31,8 @@ public class DemoWaterSplash : MonoBehaviour {
 	}
 	private void GameOver()
 	{
-		_pauseScript.GameOver();
+		GameController.instance.GameOver();
+		_waterObj.GetComponent<AudioSource>().Play();
 	}
 	private void Update()
 	{

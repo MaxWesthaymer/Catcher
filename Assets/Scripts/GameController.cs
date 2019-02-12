@@ -2,10 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour 
 {
 	#region InspectorFields
+	[SerializeField] private UIController _uiController;
+	[SerializeField] private PlayerController _playerController;
 	[SerializeField] private Text _scoreText;
 	[SerializeField] private float _temprTime;
 	[SerializeField] private float _waitOffset;
@@ -22,6 +25,7 @@ public class GameController : MonoBehaviour
 	#region PrivateFields
 
 	private int _colorChangeCounter;
+	bool isPause = true;	
 	#endregion
 	
 	#region Public Fields
@@ -30,6 +34,7 @@ public class GameController : MonoBehaviour
 
 	#region Properties	
 	public int Score { set; get;}
+	public bool isGameOver { set; get;}
     #endregion
 	
 	#region UnityMethods
@@ -47,14 +52,43 @@ public class GameController : MonoBehaviour
 
 	private void Start ()
 	{
+		Time.timeScale = 0;  //todo убрать
 		SetRandomColor();
 		_scoreText.text = Score.ToString("00");
 		_colorChangeCounter = 0;
 		StartCoroutine(Temper());
 	}
+	
+	private void Update () 
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			if(!isPause)
+			{
+				ReStart();				
+				return;
+			}
+			Quit();
+		}
+	}
 	#endregion
 
 	#region PublicMethods
+
+	public void StartGame()
+	{
+		isPause = false;
+		isGameOver = false;
+		Time.timeScale = 1;
+	}
+
+	public void GameOver()
+	{
+		isGameOver = true;
+		_spawn.StopAllCoroutines();
+		_playerController.playerGameOver();
+		_uiController.GameOver();
+	}
 	public void AddScore()
 	{
 		var newScore = 1;
@@ -67,7 +101,17 @@ public class GameController : MonoBehaviour
 				SetRandomColor();
 				_colorChangeCounter = 0;
 			}	
-		}
+	}
+	
+	public void ReStart()
+	{
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);		
+	}
+	
+	public void Quit()	
+	{
+		Application.Quit();
+	}
 	#endregion
 		
 	#region PrivateMethods
