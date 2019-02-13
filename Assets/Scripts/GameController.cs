@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
 	public void GameOver()
 	{
 		isGameOver = true;
-		_spawn.StopAllCoroutines();
+		StopAllCoroutines();
 		_playerController.playerGameOver();
 		_uiController.GameOver();
 	}

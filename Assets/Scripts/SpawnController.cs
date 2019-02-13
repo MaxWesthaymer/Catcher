@@ -24,7 +24,7 @@ public class SpawnController : MonoBehaviour
 
 	private void Awake()
 	{
-		SpawnWait = 2.0f;
+		SpawnWait = 3.0f;
 	}
 
 	private void Start ()
@@ -44,7 +44,7 @@ public class SpawnController : MonoBehaviour
 	public IEnumerator SpawnWaves ()
 	{   
 		yield return new WaitForSeconds (_startWait);
-		while(true)
+		while(!GameController.instance.isGameOver)
 		{
 			for (int i = 0;i < _ballsCount;i++) {
 
