@@ -27,8 +27,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		_playerAudio = GetComponent<AudioSource>();
 		_startPosition = new Vector3 (0, -0.21f, -1.02f);
-		_playerColor = gameObject.GetComponent<SpriteRenderer> ().color;
+		_playerColor = gameObject.GetComponent<SpriteRenderer> ().color;	
+	}
 
+	public void PlayerStart()
+	{
 		var player = DOTween.Sequence ();
 		player.Append(transform.DOLocalMoveY (-0.21f, 0.5f).SetEase (Ease.InOutSine));
 		player.Append(_score.DOFade (1, 1f).SetEase (Ease.Flash, 15, 1));
@@ -58,10 +61,7 @@ public class PlayerController : MonoBehaviour {
 			movePos.Append(transform.DOMove (_playerPositions[num], _moveSpeed));
 			movePos.Append(transform.DOMove (_startPosition, _moveSpeed));	
 	}
-	public void PointerUP()
-	{
-			transform.DOMove (_startPosition, _moveSpeed);	
-	}
+
 	private void DoScale(Collider2D obj)
 	{
 			var scale = DOTween.Sequence ();

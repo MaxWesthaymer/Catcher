@@ -33,26 +33,17 @@ public class UIController : MonoBehaviour  {
 	#endregion
 	
 	#region Methods
-	/*public void pauze()
-	{   
-		isPause = !isPause;
-		if (isPause) 
-		    Time.timeScale = 0;
-		else
-			Time.timeScale = 1;
-				_pauseMenu.SetActive (isPause);
-
-	}*/
 	
-	public void StartGame()
+	public void StartGame() //Runing from inspector
 	{  
 		GameController.instance.StartGame();
 		_playMenu.SetActive (false);
 		_hudeDoTween.MoveOnY (_stolb, -3.71f);
-		_hudeDoTween.MoveOnX (_buttons [0], -40f, 0.6f);
-		_hudeDoTween.MoveOnX (_buttons [1], -40f, 0.5f);
-		_hudeDoTween.MoveOnX (_buttons [2], 40f, 0.6f);
-		_hudeDoTween.MoveOnX (_buttons [3], 40f, 0.5f);
+		var btnSize = _buttons[0].GetComponent<RectTransform>().sizeDelta.x;
+		_hudeDoTween.MoveOnX (_buttons [0], btnSize * -1.3f, 0.6f);
+		_hudeDoTween.MoveOnX (_buttons [1], btnSize * -1.5f, 0.5f);
+		_hudeDoTween.MoveOnX (_buttons [2], btnSize * 1.3f, 0.6f);
+		_hudeDoTween.MoveOnX (_buttons [3], btnSize * 1.5f, 0.5f);
 		Invoke(nameof(Help), 1);
 		_stolb.GetComponent<AudioSource>().Play();
 	}
@@ -61,10 +52,11 @@ public class UIController : MonoBehaviour  {
 		_gameOverBackGround.SetActive(true);
 		_gameOverMenu.SetActive(true);
 		_hudeDoTween.MoveOnY (_stolb, _stolbOnStart);
-		_hudeDoTween.MoveOnX (_buttons [0], 45f, 0.6f);
-		_hudeDoTween.MoveOnX (_buttons [1], 45f, 0.5f);
-		_hudeDoTween.MoveOnX (_buttons [2], -45f, 0.6f);
-		_hudeDoTween.MoveOnX (_buttons [3], -45f, 0.5f);
+		var btnSize = _buttons[0].GetComponent<RectTransform>().sizeDelta.x;
+		_hudeDoTween.MoveOnX (_buttons [0], btnSize * 2f, 0.6f);
+		_hudeDoTween.MoveOnX (_buttons [1], btnSize * 2f, 0.5f);
+		_hudeDoTween.MoveOnX (_buttons [2], btnSize * -2f, 0.6f);
+		_hudeDoTween.MoveOnX (_buttons [3], btnSize * -2f, 0.5f);
 		_finalScore.text = GameController.instance.Score.ToString ("00");
 		Highscore (GameController.instance.Score);
 		_hudeDoTween.GameOverAnimation ();

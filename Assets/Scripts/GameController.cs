@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 	#region InspectorFields
 	[SerializeField] private UIController _uiController;
 	[SerializeField] private PlayerController _playerController;
+	[SerializeField] private DemoWaterSplash _waterController;
 	[SerializeField] private Text _scoreText;
 	[SerializeField] private float _temprTime;
 	[SerializeField] private float _waitOffset;
@@ -52,11 +53,12 @@ public class GameController : MonoBehaviour
 
 	private void Start ()
 	{
-		Time.timeScale = 0;  //todo убрать
 		SetRandomColor();
+		
+		
 		_scoreText.text = Score.ToString("00");
 		_colorChangeCounter = 0;
-		StartCoroutine(Temper());
+		
 	}
 	
 	private void Update () 
@@ -79,7 +81,10 @@ public class GameController : MonoBehaviour
 	{
 		isPause = false;
 		isGameOver = false;
-		Time.timeScale = 1;
+		_playerController.PlayerStart();
+		_waterController.StartWater();
+		StartCoroutine(_spawn.SpawnWaves());
+		StartCoroutine(Temper());
 	}
 
 	public void GameOver()

@@ -29,7 +29,6 @@ public class SpawnController : MonoBehaviour
 
 	private void Start ()
 	{
-		StartCoroutine(SpawnWaves());
 		_balls = new List<GameObject> ();
 			for (int i = 0; i < _poolingAmount; i++) 
 			{
@@ -42,7 +41,7 @@ public class SpawnController : MonoBehaviour
 	#endregion
 	
 	#region UnityMethods
-	private IEnumerator SpawnWaves ()
+	public IEnumerator SpawnWaves ()
 	{   
 		yield return new WaitForSeconds (_startWait);
 		while(true)

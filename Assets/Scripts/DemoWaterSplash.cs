@@ -10,12 +10,6 @@ public class DemoWaterSplash : MonoBehaviour {
 	private float _yPos;
 	public float _offset;
 	public UIController _pauseScript;
-	private void Start()
-	{
-			_yPos = -2;
-			_waterObj.transform.DOMoveY (_yPos, 2, false);
-			StartCoroutine (Wawes ());
-	}
 	private void OnTriggerEnter2D(Collider2D coll)
 	{
 		if (GameController.instance.isGameOver)
@@ -29,6 +23,14 @@ public class DemoWaterSplash : MonoBehaviour {
 		gameObject.GetComponent<BoxCollider2D>().enabled = false;
 		Invoke(nameof(GameOver), 0.5f);
 	}
+
+	public void StartWater()
+	{
+		_yPos = -2;
+		_waterObj.transform.DOMoveY (_yPos, 2, false);
+		StartCoroutine (Wawes ());
+	}
+	
 	private void GameOver()
 	{
 		GameController.instance.GameOver();
