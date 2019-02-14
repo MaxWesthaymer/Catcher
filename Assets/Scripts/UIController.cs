@@ -46,6 +46,7 @@ public class UIController : MonoBehaviour  {
 		_stolbOnStart = _stolb.transform.position.y;		
 		_scoreMAIN.text = PlayerPrefs.GetInt ("higscore").ToString ("00");
 		AudioListener.volume = PlayerPrefs.GetFloat ("mutter");
+		_audioBtn.GetComponent<Image>().sprite = AudioListener.volume >= 1 ? _audioOn : _audioOff;
 	}
 	
 	#endregion

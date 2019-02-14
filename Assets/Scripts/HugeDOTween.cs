@@ -33,8 +33,8 @@ public class HugeDOTween : MonoBehaviour
 		_mySequence.Append(_triangle.rectTransform.DOPunchPosition(new Vector3 (23,0,0),0.5f,2));
 		
 		var title = DOTween.Sequence().SetUpdate(true);
-		title.Append(_title1.rectTransform.DOAnchorPosX(-75,1));
-		title.Append(_title2.rectTransform.DOAnchorPosX(2.4f,1));	
+		title.Append(_title1.rectTransform.DOAnchorPosX(-100,1));
+		title.Append(_title2.rectTransform.DOAnchorPosX(10,1));	
 	}
 	#endregion
 	
@@ -59,8 +59,8 @@ public class HugeDOTween : MonoBehaviour
 		
 		var animGo = DOTween.Sequence ();
 		animGo.Append(rectTransf.DOAnchorPosY(0,0.5f,false));
-		animGo.Append(_score.rectTransform.DOAnchorPosY(87f, 0.5f).SetEase(Ease.Linear));
-		animGo.Join(_bestScore.rectTransform.DOAnchorPosY(160f, 0.6f).SetEase(Ease.Linear));
+		animGo.Append(_score.rectTransform.DOAnchorPosY(200f, 0.5f).SetEase(Ease.Linear));
+		animGo.Join(_bestScore.rectTransform.DOAnchorPosY(270f, 0.6f).SetEase(Ease.Linear));
 		
 		var replay = DOTween.Sequence().SetLoops(-1);
 		replay.AppendInterval(1);
