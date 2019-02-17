@@ -26,7 +26,8 @@ public class GameController : MonoBehaviour
 	#region PrivateFields
 
 	private int _colorChangeCounter;
-	bool isPause = true;	
+	bool isPause = true;
+	private ShareAndRate _shareAndRate;
 	#endregion
 	
 	#region Public Fields
@@ -116,6 +117,11 @@ public class GameController : MonoBehaviour
 	public void Quit()	
 	{
 		Application.Quit();
+	}
+	
+	public void ShareText()
+	{
+		_shareAndRate.OnAndroidTextSharingClick();
 	}
 	#endregion
 		
