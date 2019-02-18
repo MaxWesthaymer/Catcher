@@ -55,9 +55,8 @@ public class GameController : MonoBehaviour
 
 	private void Start ()
 	{
-		SetRandomColor();
-		
-		
+		Application.targetFrameRate = 60;
+		SetRandomColor();	
 		_scoreText.text = Score.ToString("00");
 		_colorChangeCounter = 0;
 		
