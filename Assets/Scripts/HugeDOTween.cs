@@ -24,15 +24,15 @@ public class HugeDOTween : MonoBehaviour
 	#region UnityMethods
 	private void Start () 
 	{				
-		_splash.DOFade(0,0.5f).SetUpdate(true);
-		_bestMAIN[0].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo).SetUpdate (true);
-		_bestMAIN[1].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo).SetUpdate (true);
-		_mySequence = DOTween.Sequence().SetLoops(-1).SetUpdate(true);
+		_splash.DOFade(0,0.5f);
+		_bestMAIN[0].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo);
+		_bestMAIN[1].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo);
+		_mySequence = DOTween.Sequence().SetLoops(-1);
 		_mySequence.AppendInterval(1);
 		_mySequence.Append(_triangle.rectTransform.DORotate(new Vector3(0,0,360), 1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad));
 		_mySequence.Append(_triangle.rectTransform.DOPunchPosition(new Vector3 (23,0,0),0.5f,2));
 		
-		var title = DOTween.Sequence().SetUpdate(true);
+		var title = DOTween.Sequence();
 		title.Append(_title1.rectTransform.DOAnchorPosX(-100,1));
 		title.Append(_title2.rectTransform.DOAnchorPosX(10,1));	
 	}
