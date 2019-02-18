@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		_shareAndRate = GetComponent<ShareAndRate>();
 	}
 
 	private void Start ()

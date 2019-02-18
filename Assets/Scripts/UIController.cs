@@ -36,13 +36,14 @@ public class UIController : MonoBehaviour  {
 	{
 		_audioSourceBtn = gameObject.GetComponent<AudioSource>();
 		_replayBtn.onClick.AddListener(() => {_audioSourceBtn.Play(); GameController.instance.ReStart(); });
-		_shareBtn.onClick.AddListener(() => {GameController.instance.ShareText(); _audioSourceBtn.Play();});
+		
 		_leaderBtn.onClick.AddListener(() => {GameController.instance.ReStart(); _audioSourceBtn.Play();});
 		_audioBtn.onClick.AddListener(() => {Volume(); _audioSourceBtn.Play();});
 	}
 
 	private void Start () 
 	{
+		_shareBtn.onClick.AddListener(() => {GameController.instance.ShareText(); _audioSourceBtn.Play();});
 		_stolbOnStart = _stolb.transform.position.y;		
 		_scoreMAIN.text = PlayerPrefs.GetInt ("higscore").ToString ("00");
 		AudioListener.volume = PlayerPrefs.GetFloat ("mutter");
