@@ -15,7 +15,6 @@ public class HugeDOTween : MonoBehaviour
 	[SerializeField] private Text _score;
 	[SerializeField] private Text _bestScore;
 	[SerializeField] private Image _replayImage;
-	[SerializeField] private GameObject _helpPrefab;
 	[SerializeField] private Text[] _bestMAIN;
 	#endregion
 	
@@ -23,7 +22,8 @@ public class HugeDOTween : MonoBehaviour
 	
 	#region UnityMethods
 	private void Start () 
-	{				
+	{		
+		_splash.gameObject.SetActive(true);
 		_splash.DOFade(0,0.5f);
 		_bestMAIN[0].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo);
 		_bestMAIN[1].rectTransform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops (-1, LoopType.Yoyo);
@@ -66,12 +66,6 @@ public class HugeDOTween : MonoBehaviour
 		replay.AppendInterval(1);
 		replay.Append(_replayImage.rectTransform.DOLocalRotate(new Vector3(0,0,-360), 1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad));
 		replay.AppendInterval(1);
-	}
-	public void DOHelp()
-	{
-		_helpPrefab.SetActive (true);
-		_helpPrefab.transform.DOScale (new Vector3 (0.8f, 0.8f), 0.5f).SetLoops(5,LoopType.Yoyo)
-					.OnComplete(()=>_helpPrefab.SetActive (false));
 	}
 	#endregion
 }

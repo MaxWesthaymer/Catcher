@@ -64,7 +64,6 @@ public class UIController : MonoBehaviour  {
 		_hudeDoTween.MoveOnX (_buttons [1], btnSize * -1.5f, 0.5f);
 		_hudeDoTween.MoveOnX (_buttons [2], btnSize * 1.3f, 0.6f);
 		_hudeDoTween.MoveOnX (_buttons [3], btnSize * 1.5f, 0.5f);
-		Invoke(nameof(Help), 1);
 		_stolb.GetComponent<AudioSource>().Play();
 	}
 	public void GameOver()
@@ -106,10 +105,6 @@ public class UIController : MonoBehaviour  {
 			if (_session > 1) {
 					PlayerPrefs.SetInt ("session", 0);
 			}
-	}
-	private void Help ()
-	{
-		_hudeDoTween.DOHelp ();
 	}
 	
 	private void Volume ()
