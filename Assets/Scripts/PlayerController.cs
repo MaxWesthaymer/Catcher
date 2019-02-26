@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	private AudioSource _playerAudio;
 	private Vector3 _startPosition;
 	private static Vector2[] _playerPositions = { new Vector2(1.4f, -0.21f), new Vector2(-1.4f, -0.21f), new Vector2(1.01f,0.59f), new Vector2(-1.01f, 0.59f)};
+	private Camera _camera;
 	#endregion
 	
 	#region UnityMethods
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 		_playerAudio = GetComponent<AudioSource>();
 		_startPosition = new Vector3 (0, -0.21f, -1.02f);
 		_playerColor = gameObject.GetComponent<SpriteRenderer> ().color;	
+		_camera = Camera.main;
 	}
 
 	public void PlayerStart()
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 		other.gameObject.SetActive (false);
 		GameController.instance.AddScore();
 		_playerAudio.Play();
-		
+		StartCoroutine(_camera.GetComponent<ShakeControll>().Shake(0.1f, 0.05f));
 		DoScale (other);
 		_playerColor = other.gameObject.GetComponent<SpriteRenderer> ().color;
 		_colorizeObjects [0].GetComponent<SpriteRenderer> ().color = _playerColor;
