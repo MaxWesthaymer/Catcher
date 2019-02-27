@@ -34,11 +34,11 @@ public class BallController : MonoBehaviour
 		}
 		if (coef < 0.7f)
 		{
-			return 8;
+			return 6;
 		}
 		if (coef <= 1)
 		{
-			return 3;
+			return 4;
 		}
 		else
 		{

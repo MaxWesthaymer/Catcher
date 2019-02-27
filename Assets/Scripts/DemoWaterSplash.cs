@@ -4,12 +4,15 @@ using DG.Tweening;
 
 public class DemoWaterSplash : MonoBehaviour {
 
-	public WaterLine _water;
-	public bool _en;
-	public GameObject _waterObj;
+	[SerializeField]private WaterLine _water;	
+	[SerializeField]private GameObject _waterObj;	
+	
+	#region PrivateFields
+	private float _offset = 1.2f;
+	private bool _en;
 	private float _yPos;
-	public float _offset;
-	public UIController _pauseScript;
+	private int _waterLevel;
+	#endregion
 	private void OnTriggerEnter2D(Collider2D coll)
 	{
 		if (GameController.instance.isGameOver)
@@ -20,19 +23,24 @@ public class DemoWaterSplash : MonoBehaviour {
 		transform.GetComponent<AudioSource>().Play ();
 		_en = true;
 		_waterObj.transform.DOMoveY (_yPos, 1, false);
-		gameObject.GetComponent<BoxCollider2D>().enabled = false;
-		Invoke(nameof(GameOver), 0.5f);
+		_waterLevel++;
+		if (_waterLevel > 3)
+		{
+			Invoke(nameof(GameOver), 0.5f);
+		}
 	}
 
 	public void StartWater()
 	{
-		_yPos = -2;
+		_yPos = -5;
+		_waterLevel = 0;
 		_waterObj.transform.DOMoveY (_yPos, 2, false);
 		StartCoroutine (Wawes ());
 	}
 	
 	private void GameOver()
 	{
+		gameObject.GetComponent<BoxCollider2D>().enabled = false;
 		GameController.instance.GameOver();
 		_waterObj.GetComponent<AudioSource>().Play();
 	}
