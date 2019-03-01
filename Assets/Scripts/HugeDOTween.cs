@@ -64,7 +64,7 @@ public class HugeDOTween : MonoBehaviour
 		
 		var replay = DOTween.Sequence().SetLoops(-1);
 		replay.AppendInterval(1);
-		replay.Append(_replayImage.rectTransform.DOLocalRotate(new Vector3(0,0,-360), 1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad));
+		replay.Append(_replayImage.rectTransform.DOLocalRotate(new Vector3(0,0,-360), 1f, RotateMode.LocalAxisAdd).SetEase(Ease.OutQuad));
 		replay.AppendInterval(1);
 	}
 	#endregion
