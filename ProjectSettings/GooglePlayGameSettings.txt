@@ -1,10 +1,10 @@
-lastUpgrade=00940
+lastUpgrade=00964
 proj.AppId=31155880137
 and.BundleId=com.Room32.Catcher
 proj.classDir=Assets
 proj.ConstantsClassName=Goglecatch
-and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3cstring+name%3d%22app_id%22%3e31155880137%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22package_name%22%3ecom.Room32.Catcher%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_20%22%3eCggIyYGkiHQQAhAB%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_40%22%3eCggIyYGkiHQQAhAC%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_60%22%3eCggIyYGkiHQQAhAD%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_80%22%3eCggIyYGkiHQQAhAE%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_100%22%3eCggIyYGkiHQQAhAF%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22leaderboard_catcher_scores%22%3eCggIyYGkiHQQAhAG%3c%2fstring%3e%0d%0a%3c%2fresources%3e
-and.ClientId=
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--+app_id+--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e31155880137%3c%2fstring%3e%0d%0a++%3c%21--+package_name+--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.Room32.Catcher%3c%2fstring%3e%0d%0a++%3c%21--+achievement+20+--%3e%0d%0a++%3cstring+name%3d%22achievement_20%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAB%3c%2fstring%3e%0d%0a++%3c%21--+achievement+40+--%3e%0d%0a++%3cstring+name%3d%22achievement_40%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAC%3c%2fstring%3e%0d%0a++%3c%21--+achievement+60+--%3e%0d%0a++%3cstring+name%3d%22achievement_60%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAD%3c%2fstring%3e%0d%0a++%3c%21--+achievement+80+--%3e%0d%0a++%3cstring+name%3d%22achievement_80%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAE%3c%2fstring%3e%0d%0a++%3c%21--+achievement+100+--%3e%0d%0a++%3cstring+name%3d%22achievement_100%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAF%3c%2fstring%3e%0d%0a++%3c%21--+leaderboard+Catcher+Scores+--%3e%0d%0a++%3cstring+name%3d%22leaderboard_catcher_scores%22+translatable%3d%22false%22%3eCggIyYGkiHQQAhAG%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=31155880137-d5n83idortcgn3alnuo1ri0c0vlbag66.apps.googleusercontent.com
 proj.requireGPlus=false
 android.SetupDone=true
-proj.pluginVersion=0.9.40
+proj.pluginVersion=0.9.64

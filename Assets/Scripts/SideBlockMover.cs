@@ -9,11 +9,11 @@ public class SideBlockMover : MonoBehaviour {
 	#region UnityMethods
 	private void Start () 
 	{
-		Camera cam = Camera.main;
-		float height = 2f * cam.orthographicSize;
-		float width = height * cam.aspect;
-		Debug.Log("width " + width);
-		transform.position = _xOffset > 0 ? new Vector2(width / 2f + 0.5f, 1f) : new Vector2(-width / 2f - 0.5f, 1f);
+		//Camera cam = Camera.main;
+		//float height = 2f * cam.orthographicSize;
+		//float width = height * cam.aspect;
+		//Debug.Log("width " + width);
+		//transform.position = _xOffset > 0 ? new Vector2(width / 2f + 0.5f, 1f) : new Vector2(-width / 2f - 0.5f, 1f);
 		_startPos = transform.position.x;
 	}	
 

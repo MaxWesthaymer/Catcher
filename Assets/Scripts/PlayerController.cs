@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 		other.gameObject.SetActive (false);
 		GameController.instance.AddScore();
 		_playerAudio.Play();
-		StartCoroutine(_camera.GetComponent<ShakeControll>().Shake(0.1f, 0.05f));
+		StartCoroutine(_camera.GetComponent<ShakeControll>().Shake(0.05f, 0.02f));
 		DoScale (other);
 		_playerColor = other.gameObject.GetComponent<SpriteRenderer> ().color;
 		_colorizeObjects [0].GetComponent<SpriteRenderer> ().color = _playerColor;
