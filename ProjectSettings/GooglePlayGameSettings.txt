@@ -1,4 +1,4 @@
-lastUpgrade=00964
+lastUpgrade=01011
 proj.AppId=31155880137
 and.BundleId=com.Room32.Catcher
 proj.classDir=Assets
@@ -7,4 +7,4 @@ and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0
 and.ClientId=31155880137-d5n83idortcgn3alnuo1ri0c0vlbag66.apps.googleusercontent.com
 proj.requireGPlus=false
 android.SetupDone=true
-proj.pluginVersion=0.9.64
+proj.pluginVersion=0.10.11
